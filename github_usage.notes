@@ -1,0 +1,121 @@
+# 在github上注册账号并创建Reposity
+
+安装本地客户端
+sudo apt-get install git
+
+# git教程
+(git help tutorial)
+
+配置本地到Git免ssh登录
+ssh-keygen -t rsa -C "619366205@qq.com"
+cat id_rsa.pub
+复制粘贴到github网站 Account Setting -> SSH Keys -> Add SSH key
+
+测试验证
+ssh -T git@github.com
+
+# 显示如下为测试通过
+You’ve successfully authenticated, but GitHub does not provide shell access
+
+设置username和email
+git config --global user.name "blueseyes1021"
+git config --global user.email "619366205@qq.com"
+设置后会在本地生成 .gitconfig 文件
+
+修改文件
+git add README.md
+
+查看状态
+git status
+
+上传到github
+git push origin master
+
+从github下载
+git pull origin master 
+
+忽略文件
+gitignore
+
+# 创建并初始化git仓库
+mkdir project
+cd project
+git init
+
+# 对.目录生成快照
+git add .
+
+# 提交信息
+git commit
+
+# 修改文件
+git add hello
+
+# 比较提交前后不同
+git diff --cached
+
+# 查看历史变化
+git log
+---------------------------------------------------
+commit 0cf2f600146936d8126c8805b5693876423bc7fd
+Author: blueseyes1021 <619366205@qq.com>
+Date:   Fri Jan 27 20:13:33 2017 +0800
+
+    2017
+---------------------------------------------------
+
+# 查看所有变化
+git log -p
+---------------------------------------------------
+commit 0cf2f600146936d8126c8805b5693876423bc7fd
+Author: blueseyes1021 <619366205@qq.com>
+Date:   Fri Jan 27 20:13:33 2017 +0800
+
+    2017
+
+    diff --git a/hello b/hello
+    new file mode 100644
+    index 0000000..5da2a09
+    --- /dev/null
+    +++ b/hello
+    @@ -0,0 +1 @@
+    +happy new year
+---------------------------------------------------
+
+# 概览变化
+git log --stat --summary
+---------------------------------------------------
+commit 0cf2f600146936d8126c8805b5693876423bc7fd
+Author: blueseyes1021 <619366205@qq.com>
+Date:   Fri Jan 27 20:13:33 2017 +0800
+
+    2017
+
+     hello | 1 +
+      1 file changed, 1 insertion(+)
+       create mode 100644 hello
+---------------------------------------------------
+
+# 创建新的分支 "自定义名字"
+git branch experimental
+
+# 显示自定义分支
+git branch
+---------------------------------------------------
+  experimental
+  * master
+---------------------------------------------------
+
+# 切换分支
+git checkout experimental
+切换到分支 'experimental'
+
+
+# git 学习文档
+# 入门
+man gittutorial
+# 进阶
+giteveryday
+# 高级
+git user's manual
+
